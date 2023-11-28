@@ -2718,7 +2718,7 @@
             <div class="elementor-widget-wrap elementor-element-populated">
               <div
                 id="agenda-block"
-                class="elementor-element elementor-element-05a6f11 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides !relative"
+                class="elementor-element elementor-element-05a6f11 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides !opacity-0"
                 data-id="05a6f11"
                 data-element_type="widget"
                 data-settings='{"navigation":"none","autoplay_speed":"2000","transition":"fade","sticky":"top","sticky_on":["desktop","laptop"],"sticky_parent":"yes","autoplay":"yes","infinite":"yes","transition_speed":500,"sticky_offset":0,"sticky_effects_offset":0}'
@@ -6993,6 +6993,10 @@
           $splashElement.classList.add("!hidden");
           $agendaBlock.classList.remove("!relative");
         }, 1500);
+
+        setTimeout(() => {
+          $agendaBlock.classList.remove("!opacity-0");
+        }, 2000);
 
         document
           .querySelector('div[data-elementor-type="header"]')
