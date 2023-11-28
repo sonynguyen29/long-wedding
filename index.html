@@ -2717,7 +2717,8 @@
           >
             <div class="elementor-widget-wrap elementor-element-populated">
               <div
-                class="elementor-element elementor-element-05a6f11 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides"
+                id="agenda-block"
+                class="elementor-element elementor-element-05a6f11 elementor--h-position-center elementor--v-position-middle elementor-widget elementor-widget-slides !relative"
                 data-id="05a6f11"
                 data-element_type="widget"
                 data-settings='{"navigation":"none","autoplay_speed":"2000","transition":"fade","sticky":"top","sticky_on":["desktop","laptop"],"sticky_parent":"yes","autoplay":"yes","infinite":"yes","transition_speed":500,"sticky_offset":0,"sticky_effects_offset":0}'
@@ -6983,14 +6984,14 @@
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
         const $body = document.querySelector("body");
+        const $agendaBlock = document.querySelector("#agenda-block");
         $body.classList.remove("!overflow-hidden");
-
-        window.scrollTo(0, 0);
 
         $splashElement.classList.add("itemHidden");
 
         setTimeout(() => {
           $splashElement.classList.add("!hidden");
+          $agendaBlock.classList.remove("!relative");
         }, 1500);
 
         document
