@@ -5003,7 +5003,7 @@
                       >
                         <div class="elementor-widget-container">
                           <div
-                            class="elementor-social-icons-wrapper elementor-grid"
+                            class="elementor-social-icons-wrapper elementor-grid !m-0"
                           >
                             <span class="elementor-grid-item">
                               <a
@@ -6973,6 +6973,10 @@
         const $splashElement = document.querySelector(".splash-spinner-block");
         $splashElement.classList.add("itemHidden");
 
+        setTimeout(() => {
+          $splashElement.classList.add("!hidden");
+        }, 1500);
+
         document
           .querySelector('div[data-elementor-type="header"]')
           .classList.remove("!hidden");
@@ -6987,7 +6991,7 @@
 
     <style>
       /* * {
-        border: 1px solid red;
+        border: 0.1px solid red;
       } */
     </style>
   </body>
