@@ -12,8 +12,13 @@
       content="Cùng nhau đếm ngược đến ngày trọng đại: 05-01-2024 | Tình yêu không làm cho thế giới quay tròn. Tình yêu là những gì làm cho chuyến đi đáng giá."
     />
     <meta name="robots" content="max-image-preview:large" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:image" content="./images/share-social-compress.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="./images/logo-100x100.ico" />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -910,12 +915,12 @@
     />
   </head>
   <body
-    class="page-template-default page page-id-173 theme-wedding woocommerce-no-js elementor-default elementor-kit-63 elementor-page elementor-page-173"
+    class="!overflow-hidden page-template-default page page-id-173 theme-wedding woocommerce-no-js elementor-default elementor-kit-63 elementor-page elementor-page-173"
   >
     <div class="splash-spinner-block flex h-screen justify-center items-center">
       <img
-        class="m-auto"
-        src="http://wedding.nicdark.com/wedding-day/wp-content/uploads/sites/7/2023/02/couple.png"
+        class="m-auto !w-[200px] !h-[200px] sm:!w-[300px] sm:!h-[300px] md:!w-[500px] md:!h-[500px]"
+        src="../images/splash-screen.png"
       />
     </div>
     <!--
@@ -931,7 +936,7 @@
     <div
       data-elementor-type="header"
       data-elementor-id="13"
-      class="elementor elementor-13 elementor-location-header !invisible"
+      class="elementor elementor-13 elementor-location-header !hidden"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-d5a8f1c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -1283,7 +1288,7 @@
     <div
       data-elementor-type="wp-page"
       data-elementor-id="173"
-      class="elementor elementor-173 !invisible"
+      class="elementor elementor-173 !hidden"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-c288bb8 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
@@ -1419,7 +1424,7 @@
                     }
                   </style>
                   <a href="https://wedding.nicdark.com/wedding-day">
-                    <img
+                    <!-- <img
                       fetchpriority="high"
                       decoding="async"
                       width="689"
@@ -1432,6 +1437,20 @@
                         https://wedding.nicdark.com/wedding-day/wp-content/uploads/sites/7/2023/02/logo-01-1-300x124.png 300w
                       "
                       sizes="(max-width: 689px) 100vw, 689px"
+                    /> !-->
+                    <img
+                      fetchpriority="high"
+                      decoding="async"
+                      width="500"
+                      height="500"
+                      src="./images/logo-500x500.png"
+                      class="elementor-animation-pulse attachment-large size-large wp-image-706"
+                      alt=""
+                      srcset="
+                        ./images/logo-500x500.png 500w,
+                        ./images/logo-300x300.png 300w
+                      "
+                      sizes="(max-width: 768px) 300w, 500w"
                     />
                   </a>
                 </div>
@@ -5047,7 +5066,7 @@
     <div
       data-elementor-type="footer"
       data-elementor-id="19"
-      class="elementor elementor-19 elementor-location-footer !invisible"
+      class="elementor elementor-19 elementor-location-footer !hidden"
     >
       <!-- 
       <section
@@ -6963,6 +6982,11 @@
     <script>
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
+        const $body = document.querySelector("body");
+        $body.classList.remove("!overflow-hidden");
+
+        window.scrollTo(0, 0);
+
         $splashElement.classList.add("itemHidden");
 
         setTimeout(() => {
@@ -6971,13 +6995,13 @@
 
         document
           .querySelector('div[data-elementor-type="header"]')
-          .classList.remove("!invisible");
+          .classList.remove("!hidden");
         document
           .querySelector('div[data-elementor-type="wp-page"]')
-          .classList.remove("!invisible");
+          .classList.remove("!hidden");
         document
           .querySelector('div[data-elementor-type="footer"]')
-          .classList.remove("!invisible");
+          .classList.remove("!hidden");
       });
     </script>
 
