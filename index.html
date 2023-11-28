@@ -874,6 +874,7 @@
         background: #fff;
         animation-fill-mode: both;
         animation-duration: var(--e-page-transition-animation-duration);
+        opacity: 1;
       }
 
       .splash-spinner-block img {
@@ -888,6 +889,11 @@
         animation-duration: var(--e-preloader-animation-duration, 1000ms);
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+      }
+
+      .itemHidden {
+        opacity: 0 !important;
+        transition: opacity 1.5s !important;
       }
     </style>
 
@@ -925,7 +931,7 @@
     <div
       data-elementor-type="header"
       data-elementor-id="13"
-      class="elementor elementor-13 elementor-location-header !hidden"
+      class="elementor elementor-13 elementor-location-header !opacity-0"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-d5a8f1c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -1277,7 +1283,7 @@
     <div
       data-elementor-type="wp-page"
       data-elementor-id="173"
-      class="elementor elementor-173 !hidden"
+      class="elementor elementor-173 !opacity-0"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-c288bb8 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
@@ -1937,13 +1943,15 @@
         data-settings='{"background_background":"classic"}'
       >
         <div class="elementor-background-overlay"></div>
-        <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-container elementor-column-gap-default h-12">
           <div
             class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-42fd51d"
             data-id="42fd51d"
             data-element_type="column"
           >
-            <div class="elementor-widget-wrap elementor-element-populated">
+            <div
+              class="elementor-widget-wrap elementor-element-populated !overflow-hidden"
+            >
               <div
                 class="elementor-element elementor-element-9cbcbad elementor-icon-list--layout-inline elementor-align-left elementor-widget__width-initial elementor-absolute elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
                 data-id="9cbcbad"
@@ -5047,7 +5055,7 @@
     <div
       data-elementor-type="footer"
       data-elementor-id="19"
-      class="elementor elementor-19 elementor-location-footer !hidden"
+      class="elementor elementor-19 elementor-location-footer !opacity-0"
     >
       <!-- 
       <section
@@ -6963,19 +6971,24 @@
     <script>
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
-        $splashElement.classList.add("!hidden");
+        $splashElement.classList.add("itemHidden");
 
-        document.querySelector('div[data-elementor-type="header"]').classList.remove("!hidden");
-        document.querySelector('div[data-elementor-type="wp-page"]').classList.remove("!hidden");
-        document.querySelector('div[data-elementor-type="footer"]').classList.remove("!hidden");
-        
+        document
+          .querySelector('div[data-elementor-type="header"]')
+          .classList.remove("!opacity-0");
+        document
+          .querySelector('div[data-elementor-type="wp-page"]')
+          .classList.remove("!opacity-0");
+        document
+          .querySelector('div[data-elementor-type="footer"]')
+          .classList.remove("!opacity-0");
       });
     </script>
 
     <style>
-      * { 
+      /* * {
         border: 1px solid red;
-      }
+      } */
     </style>
   </body>
 </html>
