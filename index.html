@@ -906,8 +906,9 @@
   <body
     class="page-template-default page page-id-173 theme-wedding woocommerce-no-js elementor-default elementor-kit-63 elementor-page elementor-page-173"
   >
-    <div class="splash-spinner-block">
+    <div class="splash-spinner-block flex h-screen justify-center items-center">
       <img
+        class="m-auto"
         src="http://wedding.nicdark.com/wedding-day/wp-content/uploads/sites/7/2023/02/couple.png"
       />
     </div>
@@ -924,7 +925,7 @@
     <div
       data-elementor-type="header"
       data-elementor-id="13"
-      class="elementor elementor-13 elementor-location-header"
+      class="elementor elementor-13 elementor-location-header !hidden"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-d5a8f1c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -1276,7 +1277,7 @@
     <div
       data-elementor-type="wp-page"
       data-elementor-id="173"
-      class="elementor elementor-173"
+      class="elementor elementor-173 !hidden"
     >
       <section
         class="elementor-section elementor-top-section elementor-element elementor-element-c288bb8 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
@@ -5046,7 +5047,7 @@
     <div
       data-elementor-type="footer"
       data-elementor-id="19"
-      class="elementor elementor-19 elementor-location-footer"
+      class="elementor elementor-19 elementor-location-footer !hidden"
     >
       <!-- 
       <section
@@ -6963,7 +6964,18 @@
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
         $splashElement.classList.add("!hidden");
+
+        document.querySelector('div[data-elementor-type="header"]').classList.remove("!hidden");
+        document.querySelector('div[data-elementor-type="wp-page"]').classList.remove("!hidden");
+        document.querySelector('div[data-elementor-type="footer"]').classList.remove("!hidden");
+        
       });
     </script>
+
+    <style>
+      * { 
+        border: 1px solid red;
+      }
+    </style>
   </body>
 </html>
