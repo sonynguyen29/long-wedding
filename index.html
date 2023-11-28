@@ -6981,22 +6981,22 @@
     ></script>
 
     <script>
+      window.addEventListener("scroll", function () {
+        const $agendaBlock = document.querySelector("#agenda-block");
+
+        $agendaBlock.classList.remove("!opacity-0");
+      });
+
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
         const $body = document.querySelector("body");
-        const $agendaBlock = document.querySelector("#agenda-block");
         $body.classList.remove("!overflow-hidden");
 
         $splashElement.classList.add("itemHidden");
 
-        setTimeout(() => {
-          $splashElement.classList.add("!hidden");
-          $agendaBlock.classList.remove("!relative");
+        setTimeout(function () {
+        $splashElement.classList.add("!hidden");
         }, 1500);
-
-        setTimeout(() => {
-          $agendaBlock.classList.remove("!opacity-0");
-        }, 2000);
 
         document
           .querySelector('div[data-elementor-type="header"]')
