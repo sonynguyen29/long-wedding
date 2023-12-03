@@ -7115,7 +7115,7 @@
             body: JSON.stringify(requestData)
           }
 
-          const dataRes = fetch(apiUrl, fetchOptions);
+          const dataRes = await fetch(apiUrl, fetchOptions);
           
           const data = await dataRes.json();
 
