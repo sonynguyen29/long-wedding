@@ -7092,9 +7092,31 @@
         $agendaBlock.classList.remove("!opacity-0");
       });
 
-      const loadSweetWishesFile = async () => {
+      const loadSweetWishes = async () => {
         try {
-          const dataRes = await fetch("./sweetwishes.json");
+          const apiUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-fapeu/endpoint/data/v1/action/find';
+
+          const requestData = {
+            collection: "wishes",
+            database: "wedding",
+            dataSource: "long-wedding",
+          };
+
+          const headers = new Headers();
+          headers.append("Content-Type", "application/json");
+          headers.append("Access-Control-Request-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+          headers.append("Access-Control-Allow-Origin", "*");
+          headers.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+          headers.append("api-key", "BNP4A5Jn4yRLFpNpbJforWZn5oM5j0r2PKcVjm5kwj6iZFan6iFkpfGSqOS5H0j4");
+
+          const fetchOptions =  { 
+            method: 'POST',
+            headers,
+            body: JSON.stringify(requestData)
+          }
+
+          const dataRes = fetch(apiUrl, fetchOptions);
+          
           const data = await dataRes.json();
 
           sweetWishes = data["sweet_wishes"] || [];
@@ -7154,9 +7176,9 @@
           .querySelector('div[data-elementor-type="footer"]')
           .classList.remove("!hidden");
 
-        loadSweetWishesFile();
+        loadSweetWishes();
 
-        writeSweetWishesFile();
+        // writeSweetWishesFile();
       });
     </script>
 
