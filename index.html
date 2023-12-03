@@ -7084,11 +7084,54 @@
     ></script>
 
     <script>
+      let sweetWishes = [];
+
       window.addEventListener("scroll", function () {
         const $agendaBlock = document.querySelector("#agenda-block");
 
         $agendaBlock.classList.remove("!opacity-0");
       });
+
+      const loadSweetWishesFile = async () => {
+        try {
+          const dataRes = await fetch("./sweetwishes.json");
+          const data = await dataRes.json();
+
+          sweetWishes = data["sweet_wishes"] || [];
+
+          console.log(sweetWishes);
+        } catch (err) {
+          console.error("Error fetching JSON file:", err);
+        }
+      };
+
+      const writeSweetWishesFile = () => {
+        try {
+          // Parse the user input as JSON
+          const data = {
+            sweet_wishes: [
+              ...sweetWishes,
+              {
+                wish: "Chúc hai đứa mãi hạnh phúc, tình csrm mãi luôn như ngày đầu mới yêu. Bước vào hôn nhân, cuộc sống sẽ trở nên rất khác biệt. Lúc đó,không phải sống vì mình nữa, mà còn vì một nữa kia và vì cả hai bên gia đình. Chắc hẳn, cuộc sống hôn nhân không phải màu hồng",
+                name: "Thục Uyên",
+              },
+            ],
+          };
+          // Convert JSON data to a string
+          const jsonString = JSON.stringify(data, null, 2);
+
+          // Create a Blob with the JSON content
+          const blob = new Blob([jsonString], { type: "application/json" });
+
+          // Create a download link and trigger a click event
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "sweetwishes.json";
+          link.click();
+        } catch (error) {
+          console.error("Error parsing or writing JSON:", error);
+        }
+      };
 
       window.addEventListener("load", function () {
         const $splashElement = document.querySelector(".splash-spinner-block");
@@ -7110,6 +7153,10 @@
         document
           .querySelector('div[data-elementor-type="footer"]')
           .classList.remove("!hidden");
+
+        loadSweetWishesFile();
+
+        writeSweetWishesFile();
       });
     </script>
 
