@@ -7104,9 +7104,7 @@
 
           const headers = new Headers();
           headers.append("Content-Type", "application/json");
-          headers.append("Access-Control-Request-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-          headers.append("Access-Control-Allow-Origin", "*");
-          headers.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+          headers.append("Access-Control-Request-Headers", "*");
           headers.append("api-key", "BNP4A5Jn4yRLFpNpbJforWZn5oM5j0r2PKcVjm5kwj6iZFan6iFkpfGSqOS5H0j4");
 
           const fetchOptions =  { 
